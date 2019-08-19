@@ -1,0 +1,152 @@
+sudo tzselect
+sudo ln --sysbolic /usr/share/zoneinfo/Asia/Shanghai localtime
+sudo date -s MM/DD/YY
+sudo date -s hh:mm:ss
+sudo hwclock --systohc
+
+sudo timedatectl set-timezone Asia/Shanghai
+
+date -R
+
+
+sudo dmsetup ls
+sudo lsof | grep 253,0
+
+
+
+adbd install library
+sudo apt-get install libselinux1-dev
+sudo apt-get install libsystemd-dev
+
+
+mingw32
+x86_64-w64-ming32-gc++  # 64bit
+i686-w64-ming32-g++ 	# 32bit
+
+
+ps
+ps -aef | grep process
+ps -p pid -o etime	# [[DD-]hh:]mm:ss
+ps -p pid -o etimes	# s
+
+
+umcompress tar.xz
+tar xvf example.tar.xz
+
+# uncompress tar.bz2
+tar -jxvf archive_name.tar.bz2
+
+
+ffmpeg transfor example.wmv to example.mp4
+ffmpeg -i example.wmv example.mp4
+
+
+
+# update source.list
+sudo add-apt-repository main
+sudo add-apt-repository universe
+sudo add-apt-repository restricted
+sudo add-apt-repository multiverse
+sudo apt-get update
+
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+sudo dpkg --config -a
+sudo rm /var/lib/dpkg/updates/*
+sudo apt-get update
+
+
+# compile asm
+as -gstabs+ main.s -o main.o
+ls main.o -o main 
+
+
+# git
+git reset --hard commit_id
+git reflog
+
+
+
+
+
+# vim
+# ignoring case
+:set ignorecase	
+:set noignorecase
+
+:set ignorecase smartcase	# at least one uppercase -> sensitive
+\C				# sensitive character
+\c				# nonsensitive character
+
+# replacement Professor to Teacher in all lines with all Professor
+:%s/Professor/Teacher/g		# or :%substitute/Professor/Teacher/g
+# repalce the current line of Professor to Teacher
+:substitute/Professor/Teacher/
+
+
+
+# GUI
+sudo systemctl set-default graphical.target	# have GUI
+sudo systemctl set-default multi-user.target	# have no GUI
+
+
+# mount samba shared file
+sudo mount -t cifs //192.168.0.189:/Public /mnt/ -o username=wang_lintao,password=wang_lintao
+
+
+# apt-get install
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+sudo dpkg --config -a
+sudo rm /var/lib/dpkg/update/*
+sudo apt-get update
+
+
+# install setuptools and pip
+# at setuptools source code directory
+sudo python3 setup.py build
+sudo python3 setup.py install
+
+# at pip source code directory
+sudo python3 setup.py install
+
+
+sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1_18.04.4_amd64.deb
+sudo dpkg -i libpython3.6-minimal_3.6.8-1_18.04.1_amd64.deb
+sudo dpkg -i libpython3.6-stdlib_3.6.8-1_18.04.1_amd64.deb
+sudo dpkg -i libexpat1-dev_2.2.5-3_amd64.deb
+sudo dpkg -i libpython3.6_3.6.8-1_18.04.1_amd64.deb
+sudo dpkg -i libpython3.6-dev_3.6.8-1_18.04.1_amd64.deb
+
+
+# at psutil source code directory
+sudo python3 setup.py build
+sudo python3 setup.py install
+
+
+# set squid proxy
+sudo squid -k parse
+sudo squid -z
+sudo service squid start
+
+# enable ip_forward
+vim /etc/sysctl.conf
+net.ipv4.ip_forward = 1
+sysctl -p /etc/sysctl.conf
+
+# config apt-get install using proxy
+sudo vim /etc/apt/apt.conf
+Acquire::http::proxy "http://user_name:password@internal_ip:port";
+Acquire::https::proxy "http://user_name:password@internal_ip:port";
+Acquire::ftp::proxy "http://user_name:password@internal_ip:port";
+
+sudo vim ~/.bashrc
+export http_proxy="http://user_name:password@internal_ip:port"
+export https_proxy="http://user_name:password@internal_ip:port"
+export ftp_proxy="http://user_name:password@internal_ip:port"
+
+sudo apt-get update
+
+
+# firefox check history
+Ctrl + h
