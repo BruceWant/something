@@ -150,3 +150,7 @@ sudo apt-get update
 
 # firefox check history
 Ctrl + h
+
+
+# collectl
+collectl -scdmn >> record_file_name
