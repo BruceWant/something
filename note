@@ -154,3 +154,6 @@ Ctrl + h
 
 # collectl
 collectl -scdmn >> record_file_name
+
+# iozone
+iozone -a -g 8g -n 64k -i 0 -Rcb /home/tao/crypto/performence/64k.xls -f /home/tao/crypto/mount/10G/tmp
